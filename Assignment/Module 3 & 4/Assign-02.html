@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Table</title>
+</head>
+<body>
+    <h1>TABLE :</h1>
+    <table id="emp" border="=1">
+        <tr>
+            <th>Id</th>
+            <th>Employee Name</th>
+            <th>City</th>
+            <th>Salary</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td>Khushboo Bhasne</td>
+            <td>Nagpur</td>
+            <td>30000</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>Himani Prajapati</td>
+            <td>Mysore</td>
+            <td>25000</td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td>Gaurvi Pathak</td>
+            <td>Pune</td>
+            <td>25000</td>
+        </tr>
+    </table>
+
+    <script>
+        //--------task1---------
+       var r = document.getElementById("emp").rows;
+       //console.log(e);
+       for(i=1 ; i<r.length ; i++){
+           r[i].style.backgroundColor = "peachpuff";
+           i++;
+       }
+
+       //-------task2--------
+       var childs = ((document.getElementById("emp").rows[0].childNodes));
+       for(var i=1 ; i<childs.length ; i++){
+           childs[i].style.fontWeight = "bold";
+           i++;
+       }
+       
+
+       //-------task3----------
+       //var c = document.getElementById("emp").rows;
+       //console.log(c);
+       //console.log(r[0].cells[0]);
+       for(var i=1 ; i<r.length ; i++){
+           for(var j=0 ; j<r[i].cells.length ; j++){
+                console.log(r[i].cells[j]);
+                r[i].cells[j].style.color = "red";
+                j++;
+           }
+       }
+
+       //------------task4------------
+       var len = r[0].cells.length;
+       //console.log(len);
+       console.log(r[0].cells.length);
+       for(var i=1 ; i<r.length; i++){
+        ((document.getElementById("emp").rows[i]).lastChild.previousSibling).style.fontStyle = "italic";
+       }
+
+       //-----------task5--------------
+       for(var i=1 ; i<r.length; i++){
+        ((document.getElementById("emp").rows[i]).firstChild.nextSibling).style.textDecoration = "underline";
+       }
+
+    </script>
+
+</body>
+</html>

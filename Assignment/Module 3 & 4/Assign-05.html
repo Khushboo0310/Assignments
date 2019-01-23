@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        /* #hello{
+            height: 100px;
+            width: 200px;
+            background-color: brown;
+        } */
+    </style>
+</head>
+<body>
+    <div id="hello"> <h1>Hi!</h1></div>
+    <script>
+        
+        var myVar = setInterval(motion,100);
+        var pad = 10;
+        var wid = window.innerWidth;
+        var end = false;
+        console.log(wid);
+        function motion(){
+            if(pad>=wid && end==false){
+                end = true;
+            }
+            if(end==false){
+                document.getElementById('hello').style.paddingLeft = pad + "px";
+                pad = pad + 10;
+            }
+            else{
+                document.getElementById('hello').style.paddingLeft = pad + "px";
+                pad = pad - 10;
+            }
+        }
+    </script>
+</body>
+</html>

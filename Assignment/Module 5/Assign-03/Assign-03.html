@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Records</title>
+</head>
+<body>
+    <h3>Student Details</h3>
+    <table border="1" id="table">
+        <tr>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>Percentage</th>
+            <th>Action</th>
+        </tr>
+    </table>
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+        var url = "http://localhost:3000/students";     //json-server --watch student_details.json
+
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //console.log(JSON.parse(xhttp.response));
+                var list = JSON.parse(xhttp.response);
+                for(var i=0 ; i<list.length ; i++){
+                    var obj = list[i];
+                    var row = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                        td1.innerHTML = obj.id;
+                    var td2 = document.createElement('td');
+                        td2.innerHTML = obj.name;
+                    var td3 = document.createElement('td');
+                        td3.innerHTML = obj.percentage;
+                    var td4 = document.createElement('td');
+                        td4.innerHTML = "<button class='delete'>Delete</button>"
+                    row.appendChild(td1);
+                    row.appendChild(td2);
+                    row.appendChild(td3);
+                    row.appendChild(td4);
+                    document.getElementById("table").appendChild(row);
+                }
+            }
+        }
+        xhttp.open("GET",url,true);
+        xhttp.send();
+
+        //----------------DELETE----------------------
+        document.getElementById("table").onclick = function(event){
+            var element = event.target;
+        if(element.hasAttribute('class')){
+            //console.log(element.parentNode);
+            var td = element.parentNode;
+            td = td.parentNode;
+            console.log(td.firstChild.innerHTML);
+            //td.remove(); 
+
+            var xhttp = new XMLHttpRequest();
+            var url = "http://localhost:3000/students/"+td.firstChild.innerHTML;     //json-server --watch student_details.json
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status==200){
+                    console.log(xhttp.responseText);
+                }
+            }
+            xhttp.open("DELETE",url,true);
+            xhttp.send();
+            window.location.reload(true);
+        }
+        }
+
+    </script>
+</body>
+</html>

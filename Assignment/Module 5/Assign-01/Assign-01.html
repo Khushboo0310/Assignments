@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <style>
+        #outer{
+            background-color :rgb(253, 213, 133);
+            height: 700px;
+            resize: none;
+        }
+        #login{
+            background-color :bisque;
+            width: 800px;
+            height: 500px;
+            resize: none;
+            
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div align="center"  id="outer">
+        <h1>Welcome to the system!</h1>
+        <h4>Please provide essential credentials.</h4>
+        <div align="center" id="login">
+            <img src="download.png" alt="Login" style="margin-top: 30px">
+           
+            <label for="username"><h3> Username : </h3> </label>
+            <input type="text" id="username" placeholder="Username">
+            <label for="Password"><h3> Password : </h3></label>
+            <input type="password" id="password" placeholder="Password"><br>
+            <input type="button" value="Login" id="btn-login" style="margin-top: 50px">
+        </div>
+        
+    </div>
+
+    <script>
+        document.getElementById("btn-login").onclick = function(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "http://localhost:9876/login", true);
+            xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+            xhttp.onreadystatechange = function(){
+                if(this.readyState== 4 && this.status==200){
+                    alert(xhttp.response);
+                }
+            }
+            xhttp.send(JSON.stringify({
+                name : username,
+                pwd : password
+            })
+            );
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project Details</title>
+</head>
+<body>
+    <button id="personal">Get Personal Details</button>
+    <button id="project">Get Project Details</button>
+    <br>
+    <br>
+    <br>
+    <table border=1 id="table1">
+        <tr>
+           <th>First Name</th>
+           <th>Last Name</th>
+           <th>City</th>
+           <th>Contact Number</th> 
+        </tr>
+    </table>
+    <br><br><br>
+    <table border=1 id="table2">
+            <tr>
+               <th>Project Id</th>
+               <th>Project Location</th> 
+            </tr>
+    </table>
+
+    <script>
+        document.getElementById("personal").onclick = function(){
+            var url ="http://localhost:8080/Services/personal_details.xml";
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET",url,true);
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    console.log(xhttp.responseXML.getElementsByTagName("person"));
+                    var row = document.createElement('tr');
+                    
+                    var persons = xhttp.responseXML.getElementsByTagName("person");
+                    for(var i=0 ; i<persons.length ; i++){
+                        var nodeList = persons[i].childNodes;
+                        var row = document.createElement('tr');
+                        for(var j=1 ; j<nodeList.length ; j++){
+                            var td = document.createElement('td');
+                            td.innerHTML = nodeList[j].innerHTML;
+                            row.appendChild(td);
+                            j++;
+                        }
+                        document.getElementById("table1").appendChild(row);
+                    }
+                    //td.innerHTML = xhttp.responseXML.details.person;
+                    //document.getElementById("table1");
+                }
+            }
+            xhttp.send();
+        }
+
+        document.getElementById("project").onclick = function(){
+            var url ="http://localhost:8080/Services/project_details.json";
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET",url,true);
+
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    console.log(JSON.parse(xhttp.response));
+                    var details = JSON.parse(xhttp.response);
+                    for(var i=0 ; i<details.length ; i++){
+                        var row = document.createElement('tr');
+                        var obj = details[i];
+                        var td1 = document.createElement('td');
+                        td1.innerHTML = obj.projectId;
+                        var td2 = document.createElement('td');
+                        td2.innerHTML = obj.projectLocation;
+                        row.appendChild(td1);
+                        row.appendChild(td2);
+                        document.getElementById("table2").appendChild(row);
+                    }
+                }
+            }
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

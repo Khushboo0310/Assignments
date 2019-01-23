@@ -1,0 +1,14 @@
+[
+    {
+        "projectId": 1,
+        "projectLocation": "Nagpur"
+    },
+    {
+        "projectId": 2,
+        "projectLocation": "Mysore"
+    },
+    {
+        "projectId": 3,
+        "projectLocation": "Pune"
+    }
+]

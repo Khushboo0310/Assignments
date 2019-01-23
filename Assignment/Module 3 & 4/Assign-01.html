@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DropDown</title>
+</head>
+<body>
+    <h1>DropDown Menu :</h1>
+    <select id="cars">
+        <option value="BMW">BMW</option>
+        <option value="Audi">Audi</option>
+        <option value="Mercedez-Benz">Mercedez-Benz</option>
+    </select>
+    <script>
+        var d = document.getElementById("cars").options;
+        count=0;
+        txt ="";
+        for(var i=0 ; i<3 ; i++){
+            txt +=(i+1)+". "+d[i].value+"\n";
+            console.log(d[i].value);
+        }
+        //console.log(d);
+        alert(txt);
+    </script>
+</body>
+</html>

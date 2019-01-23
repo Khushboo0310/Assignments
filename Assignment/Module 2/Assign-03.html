@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inheritance</title>
+</head>
+<body>
+    <script>
+        function Person(name,location){
+            this.name = name;
+            this.location = location;
+        }
+
+        Person.prototype.eat = function(){
+            alert("I like sea food.");
+        }
+
+        Person.prototype.introduction = function(){
+            alert("My name is "+this.name+" and i am from "+this.location);
+        }
+
+        //prototype chaining
+        Developer.prototype = new Person();
+        Developer.prototype.constructor = Developer;
+
+        function Developer(nm, loc , projects){
+            //classical inheritance
+            Person.call(this,nm,loc);
+            this.projects = projects;
+        }
+
+        Developer.prototype.takeLeave = function(){
+            alert("I am on leave next week.");
+        }
+
+        Developer.prototype.introduction = function(){
+            alert("My name is "+this.name+" and I am from "+this.location+" and I am allocated in - "+this.projects);
+        }
+
+        var person = new Person("Default","Bhopal");
+        person.introduction();
+        person.eat();
+
+        var developer = new Developer("Khushboo","Nagpur",["Web Development","App Development","Cloud"]);
+        developer.introduction();
+        developer.eat();
+        developer.takeLeave();
+
+    </script>
+</body>
+</html>

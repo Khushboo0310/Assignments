@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        button{
+            width: 70px;
+        }
+        #screen{
+            font-size: xx-large;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="screen" cols="19" rows="5" style="resize : none"></textarea><br>
+    <button id="1"><h4>1</h4></button>
+    <button id="2"><h4>2</h4></button>
+    <button id="3"><h4>3</h4></button>
+    <button id="+"><h4>+</h4></button><br>
+    <button id="4"><h4>4</h4></button>
+    <button id="5"><h4>5</h4></button>
+    <button id="6"><h4>6</h4></button>
+    <button id="-"><h4>-</h4></button><br>
+    <button id="7"><h4>7</h4></button>
+    <button id="8"><h4>8</h4></button>
+    <button id="9"><h4>9</h4></button>
+    <button id="*"><h4>*</h4></button><br>
+    <button id="clr"><h4>clr</h4></button>
+    <button id="0"><h4>0</h4></button>
+    <button id="ans"><h4>Ans</h4></button>
+    <button id="/"><h4>/</h4></button>
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+
+        var screen = $('screen');
+        var cal = "";
+
+        $('1').onclick = function(){
+            screen.innerHTML += 1;
+            cal +=1;
+        }
+
+        $('2').onclick = function(){
+            screen.innerHTML += 2;
+            cal +=2;
+        }
+
+        $('3').onclick = function(){
+            screen.innerHTML += 3;
+            cal +=3;
+        }
+
+        $('4').onclick = function(){
+            screen.innerHTML += 4;
+            cal +=4;
+        }
+
+        $('5').onclick = function(){
+            screen.innerHTML += 5;
+            cal +=5;
+        }
+
+        $('6').onclick = function(){
+            screen.innerHTML += 6;
+            cal +=6;
+        }
+
+        $('7').onclick = function(){
+            screen.innerHTML += 7;
+            cal +=7;
+        }
+
+        $('8').onclick = function(){
+            screen.innerHTML += 8;
+            cal +=8;
+        }
+
+        $('9').onclick = function(){
+            screen.innerHTML += 9;
+            cal +=9;
+        }
+
+        $('0').onclick = function(){
+            screen.innerHTML += 0;
+            cal +=0;
+        }
+
+        $('+').onclick = function(){
+            screen.innerHTML += "+";
+            cal +="+";
+        }
+
+        $('-').onclick = function(){
+            screen.innerHTML += "-";
+            cal +="-";
+        }
+
+        $('*').onclick = function(){
+            screen.innerHTML += "*";
+            cal +="*";
+        }
+
+        $('/').onclick = function(){
+            screen.innerHTML += "/";
+            cal +="/";
+        }
+
+        $('ans').onclick = function(){
+            console.log(eval(cal));
+
+            screen.innerHTML = eval(cal);
+        }
+
+        $('clr').onclick = function(){
+            screen.innerHTML = "";
+        }
+        
+
+    </script>
+</body>
+</html>

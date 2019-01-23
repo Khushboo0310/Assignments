@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Toggle Image</title>
+    <style>
+        /* #one{
+            width: 100%;
+            height: 300px;
+        } */
+        #two img{
+            width: 50%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="one">
+        <img src="bird1.jpg" alt="Ashi" width="150px" height="150px">
+        <img src="bird2.jpg" alt="Prateeksha" width="150px" height="150px">
+        <img src="bird3.jpg" alt="Sudeepta" width="150px" height="150px">
+        <img src="bird4.jpg" alt="Himani" width="150px" height="150px">
+        <img src="bird5.jpg" alt="Gaurvi" width="150px" height="150px">
+        <img src="bird6.jpg" alt="Mayuri" width="150px" height="150px">
+    </div>
+    <div id="two"></div>
+    <button id="toggle" style="display : none">Toggle Transparency</button>
+    <script>
+        document.getElementById("one").onclick= function(event){
+            var element = event.target;
+            if(element.hasAttribute('src')){
+                document.getElementById('toggle').style.display = "block";
+                document.getElementById("two").innerHTML = element.outerHTML;
+                //console.log(document.getElementById("two"));
+                document.getElementById("two").firstChild.style.width ="50%";
+            }
+        };
+        document.getElementById("toggle").onclick = function(){
+            if(document.getElementById("two").style.opacity == "")
+                document.getElementById("two").style.opacity = "0.3";
+            else
+                document.getElementById("two").style.opacity = "";
+        }
+    </script>
+</body>
+</html>

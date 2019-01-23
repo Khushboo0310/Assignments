@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Account Status</title>
+</head>
+<body>
+    <script>
+        var bank= [
+            {
+            name: 'JOHN',
+            account: 'Saving',
+            AccountStatus: 'blocked'
+            },
+            {
+            name: 'KATE',
+            account: 'Current',
+            AccountStatus: 'active'
+            },
+            {
+            name: 'MIKE',
+            account: 'Saving',
+            AccountStatus: 'active'
+            }];
+        var personName = prompt("Enter the name of the person :");
+        var count=0;
+        var flag = false;
+        for (var i in bank){
+            console.log(i);
+            count++;
+            if(bank[i].name === personName.toUpperCase()){
+                if(bank[i].AccountStatus == 'blocked'){
+                    alert("You need to activate your account.");
+                    flag= true;
+                }
+                else{
+                    alert("Account is active.");
+                    flag = true;
+                }
+            }
+        }
+        if(count === bank.length && flag== false){
+            alert("Person not found!!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<details>
+    <person>
+        <firstname>Khushboo</firstname>
+        <lastname>Bhasne</lastname>
+        <city>Bhopal</city>
+        <contact>8817959666</contact>
+    </person>
+    <person>
+        <firstname>Ashi</firstname>
+        <lastname>Pal</lastname>
+        <city>Bhopal</city>
+        <contact>9856710235</contact>
+    </person>
+    <person>
+        <firstname>Hiamni</firstname>
+        <lastname>Prajapati</lastname>
+        <city>Bhopal</city>
+        <contact>9988456217</contact>
+    </person>
+    <person>
+        <firstname>Gaurvi</firstname>
+        <lastname>Pathak</lastname>
+        <city>Jabalpur</city>
+        <contact>9999888023</contact>
+    </person>
+</details>

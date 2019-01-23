@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event Propagation</title>
+</head>
+<body>
+    <div style="padding:30px;" id="div1">
+        <button id="btn">
+            <img src='persistent.jpg' style="width: 100px; height: 100px;" id="per"></img>
+        </button>
+        <script>
+            function $(id){
+                return document.getElementById(id);
+            }
+            //-------------bubbling------------
+            // $('div1').addEventListener('click',function(){
+            //     alert("Event Handler of div with bubbling");
+            // });
+            // $('btn').addEventListener('click',function(){
+            //     alert("Event Handler of button with bubbling");
+            // });
+            // $('per').addEventListener('click',function(){
+            //     alert("Event Handler of image with bubbling");
+            // });
+
+            //------------capturing-------------
+            $('div1').addEventListener('click',function(){
+                alert("Event Handler of div with capturing");
+            },true);
+            $('btn').addEventListener('click',function(){
+                alert("Event Handler of button with capturing");
+            },true);
+            $('per').addEventListener('click',function(){
+                alert("Event Handler of image with capturing");
+            },true);
+        </script>
+    </div>
+</body>
+</html>

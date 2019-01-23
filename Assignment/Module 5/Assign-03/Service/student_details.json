@@ -1,0 +1,19 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Khushboo Bhasne",
+      "percentage": 90.4
+    },
+    {
+      "id": 2,
+      "name": "Prateeksha Dixit",
+      "percentage": 88.7
+    },
+    {
+      "id": 3,
+      "name": "Sudeepta Nath",
+      "percentage": 85.3
+    }
+  ]
+}
