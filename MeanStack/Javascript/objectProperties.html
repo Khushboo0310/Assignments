@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object Properties</title>
+</head>
+<body>
+    <script>
+        function Person(first,last){
+            this.firstName = first;
+            this.lastName = last;
+            this.species = 'Human';
+            this.fullName = function(){
+                alert(this.firstName+' '+this.lastName+' '+this.species);
+            }
+        }
+        var man = new Person('Satyam','Sahu');
+
+        Object.defineProperty(man,'species',{
+            value: 'Human Being',
+            writable: false,    //modifiable
+            configurable: false,    //delatable
+            enumerable: false       //using for in loop or not
+        })
+
+        man.fullName();
+        man.species='Fish';
+        man.fullName();
+        delete man.species;
+        man.fullName();
+    </script>
+</body>
+</html>

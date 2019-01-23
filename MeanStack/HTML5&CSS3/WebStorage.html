@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Storage</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('load', setCounter , false);
+        function setCounter(){
+            if(!localStorage.getItem('counts')){
+                localStorage.setItem('counts',0);
+            }
+            localStorage.setItem('counts',
+            parseInt(localStorage.getItem('counts'))+1);
+
+            document.getElementById('counter').innerHTML = localStorage.getItem('counts');
+
+            if(!sessionStorage.getItem('countsession')){
+                sessionStorage.setItem('countsession',0);
+            }
+            sessionStorage.setItem('countsession',
+            parseInt(sessionStorage.getItem('countsession'))+1);
+
+            document.getElementById('scounter').innerHTML = sessionStorage.getItem('countsession');
+        }
+    </script>
+    <h1>You have viewd this page : <span id="counter"></span></h1>
+    <br><br><br><br><br><br><br><br><br>
+    <h1>In current session: you have viewd this page : <span id ="scounter"></span></h1>
+</body>
+</html>

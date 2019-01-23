@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grocery</title>
+
+</head>
+<body>
+    <form action="Assign-01.html">
+            <h1>Welcome User!</h1>
+            <ul id="list">
+        
+            </ul>
+        
+            <br>
+            <p>You Selected : <span id="number"></span></p>
+            <div id="cart"></div>
+            <br>
+            <input type="submit" value="Sign Out" id="signout">
+    </form>
+    
+    <script>
+            if(!localStorage.getItem('items')){
+                localStorage.setItem('items',['Item-1','Item-2','Item-3','Item-4 ','Item-5','Item-6']);
+            }
+            var listItems = (localStorage.getItem('items')).split(',');
+            console.log(typeof(listItems[0]));
+            for(var i=0 ; i<6 ; i++){
+                var li = document.createElement('li');
+                li.innerHTML = listItems[i];
+                li.setAttribute('class','inside');
+                document.getElementById('list').appendChild(li);
+            }
+
+            //-----------adding to the cart-------------
+            document.getElementById('list').onclick = function(evt){
+                if(evt.target.hasAttribute('class')){
+                    document.getElementById('cart').innerHTML += evt.target.innerHTML+"<br>";
+                    document.getElementById('number').innerHTML = evt.target.innerHTML;
+                    if(!sessionStorage.getItem('sitems')){
+                        sessionStorage.setItem('sitems','');
+                    }
+                    sessionStorage.setItem('sitems',sessionStorage.getItem('sitems')+" "+evt.target.innerHTML);
+                }
+            }
+
+            //---------session delete------------
+        </script>
+</body>
+</html>

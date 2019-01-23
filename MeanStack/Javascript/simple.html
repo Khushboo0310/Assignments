@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Window and document</title>
+
+    <script>
+        function foo() {
+            alert("window loaded")
+        document.getElementById("para").innerHTML = "<h1>Hi this is new!</h1>";
+        }
+    </script>
+    <script>
+        window.onload = foo ;
+        
+    </script>
+    <script>
+        function statefun(){
+            alert("state = "+this.readyState);
+            document.getElementById("para").innerHTML = "<h1>Hi this is in Statechange!</h1>";
+        }
+        
+        document.onreadystatechange = statefun;
+    </script>
+
+</head>
+<body>
+    <p id="para"> This is a simple paragraph.</p>
+    
+</body>
+</html>

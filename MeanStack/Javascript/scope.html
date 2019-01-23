@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scopes</title>
+</head>
+<body>
+    <script>
+        var x=5;
+        function foo(){
+            x=7; // it will overwrite x
+            var x = 8; //this will be printed
+            {
+                x=9; // it will be printed
+                var x=0; // hoisting happened
+            }
+            y=2;
+            console.log(x);
+        }
+        //console.log(y); //y is not defined n
+        foo();
+        console.log(y); //here assumption is made that y is declared globally and print y=2 if the comment out line 22.
+    </script>
+</body>
+</html>

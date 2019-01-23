@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Abstraction and Encapsulation</title>
+</head>
+<body>
+    <script>
+        function Person(){
+            this.id = 10;   //public property
+            var name = 'default';   //private property
+            //constructor level
+            //this.hobbies = ['Music','Cricket'];
+
+            //private Method
+            var privateMethod = function(){
+                console.log("Private Method!!!");
+            }
+
+            //public Method
+            this.getInfo = function(){
+                privateMethod();    //use can private method here only
+                console.log(this.id+' '+name);
+            }
+            Person.population++;
+        }
+
+        //Static variables
+        Person.population = 0;      //it is a class level variable irrespective of any object.
+
+        Person.prototype.hobbies = ['Music','Cricket'];     //it is being shared by all the objects of the class.
+
+        var p1 = new Person();
+        var p2 = new Person();
+        p1.getInfo();
+        p2.getInfo();
+        p1.hobbies.push('Dancing');
+        console.log(p1.hobbies);
+        console.log(p2.hobbies);
+        console.log("Population is "+Person.population);
+    </script>
+</body>
+</html>

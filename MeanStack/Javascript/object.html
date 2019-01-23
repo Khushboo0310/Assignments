@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        //----------Every class in JS inherit the Object class ------------
+        function Employee(r) {
+            this.role = r;
+            // this.display = function(){
+            //     alert('Constructor Level : '+this.role);
+            // }
+        }
+        //prototype level function is reusable at the source code level as well as the memory level
+        Employee.prototype.display = function(){
+            alert('Prototype Level : '+this.role);
+        }
+
+        var emp = new Employee('Manager');
+        var emp1 = new Employee('Trainee');
+        emp.display = function(){
+            alert('Object Level : '+this.role);
+        }
+        emp.display();
+        emp1.display();
+        //alert(emp.toString());
+    </script>
+</body>
+</html>

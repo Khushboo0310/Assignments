@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <title></title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <div style="width:800px; margin:0 auto;">
+
+        <h1 style="margin-left:100px;">Product Details</h1>
+
+        <div id='outDiv'></div>
+
+        <div id='dvTable'></div>
+
+        <br/> Product Id:
+
+        <input id='productId' />
+
+        <button id="btnDelete">Delete Product!</button>
+
+        <button id="btnGet">Get Product!</button>
+
+        <br/> Product Name:
+
+        <input id='productName' />
+
+        <br/> Product Description:
+
+        <input id='productDesc' />
+
+        <br/> Product Status:
+
+        <input id='productStatus' />
+
+        <br/>
+
+        <br/>
+
+        <button id="btnAdd">Add Product!</button>
+
+        <button id="btnUpdate">Update Product!</button>
+
+        <br/>
+
+    </div>
+
+    <script>
+
+        document.onreadystatechange = loadDoc;
+
+ 
+
+        function loadDoc() {
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = "http://localhost:8000/products";
+
+            xhttp.onreadystatechange = function () {
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+                    var jsonArr = JSON.parse(xhttp.responseText);
+
+                    showArr(jsonArr);
+
+                }
+
+            };
+
+            function showArr(arr) {
+
+                // var out = "Id Name Description Status";
+
+                // for (var i in arr) {
+
+                //     out += "<br/>" + arr[i].id + " " + arr[i].name + " " +
+
+                //         arr[i].description + ' ' + arr[i].status;
+
+                // }
+
+                // document.getElementById('outDiv').innerHTML = out;
+
+ 
+
+                //For Table Creation
+
+                dynamicProductsTable(arr);
+
+            }
+
+ 
+
+            xhttp.open('GET', url, true);
+
+            xhttp.send();
+
+        }
+
+ 
+
+        function dynamicProductsTable(arr) {
+
+            var products = [["Product Id", "Product Name", "Product Description", "Product Status"]];
+
+            for (var i in arr) {
+
+                products.push([arr[i].id, arr[i].name, arr[i].description, arr[i].status]);
+
+            }
+
+ 
+
+            //Create a HTML Table element.
+
+            var table = document.createElement("TABLE");
+
+            table.border = "1";
+
+ 
+
+            //Get the count of columns.
+
+            var columnCount = products[0].length;
+
+ 
+
+            //Add the header row.
+
+            var row = table.insertRow(-1);
+
+            for (var i = 0; i < columnCount; i++) {
+
+                var headerCell = document.createElement("TH");
+
+                headerCell.innerHTML = products[0][i];
+
+                row.appendChild(headerCell);
+
+            }
+
+ 
+
+            //Add the data rows.
+
+            for (var i = 1; i < products.length; i++) {
+
+                row = table.insertRow(-1);
+
+                for (var j = 0; j < columnCount; j++) {
+
+                    var cell = row.insertCell(-1);
+
+                    cell.innerHTML = products[i][j];
+
+                }
+
+            }
+
+ 
+
+            var dvTable = document.getElementById("dvTable");
+
+            dvTable.innerHTML = "";
+
+            dvTable.appendChild(table);
+
+        }
+
+ 
+
+        function getProduct(){
+
+            var productId = document.getElementById('productId');
+
+            if(productId.value === "") {
+
+                alert('Please specify Product Id to be retrieved!');
+
+                return;
+
+            }
+
+            var id = parseInt(productId.value);
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = "http://localhost:8000/products/"+id;
+
+       
+
+            xhttp.onreadystatechange = function () {
+
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+
+                    var product = JSON.parse(xhttp.responseText);
+
+                    alert(product.name+' '+product.status);
+
+                }
+
+            };      
+
+            xhttp.open('GET', url, true);
+
+            xhttp.send();
+
+        }
+
+ 
+
+        document.getElementById('btnGet').onclick = getProduct;
+
+ 
+
+        function addProduct() {
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = "http://localhost:8000/products";
+
+ 
+
+            xhttp.onreadystatechange = function () {
+
+                // Status - 201 - The request has been fulfilled and has resulted in
+
+                // one or more new resources being created.
+
+                if (xhttp.readyState == 4 && this.status == 201) {
+
+                    console.log(xhttp.response);
+
+                    alert(xhttp.response);            
+
+                }
+
+            };
+
+            xhttp.open('POST', url, true);
+
+            xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+            var id = parseInt(document.getElementById('productId').value);
+
+            var name = document.getElementById('productName').value;
+
+            var desc = document.getElementById('productDesc').value;
+
+            var status = document.getElementById('productStatus').value;
+
+            xhttp.send(JSON.stringify({
+
+                id: id,
+
+                name: name,
+
+                description: desc,
+
+                status: status
+
+            }));
+
+ 
+
+            alert(id + ' ' + name + ' ' + desc + ' ' + status);
+
+            window.location.reload(true);// makes new get request so alert is imp
+
+       }
+
+ 
+
+        document.getElementById('btnAdd').onclick = addProduct;
+
+ 
+
+        function deleteProduct() {
+
+            var deleteId = document.getElementById('productId');
+
+            if (deleteId.value === "") {
+
+                alert('Please specify Product Id to be deleted!');
+
+                return;
+
+            }
+
+            var id = parseInt(deleteId.value);
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = "http://localhost:8000/products/" + id;
+
+            xhttp.open("DELETE", url, true);
+
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+            xhttp.send(JSON.stringify({ id: id }));
+
+            alert(id + ' deleted!');
+
+            window.location.reload(true);
+
+        }
+
+        document.getElementById('btnDelete').onclick = deleteProduct;
+
+ 
+
+        function updateProduct() {
+
+            var updateId = document.getElementById('productId');
+
+            var id = parseInt(updateId.value);
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = "http://localhost:8000/products/" + id;
+
+            xhttp.open("PUT", url, true);
+
+            xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+            var name = document.getElementById('productName').value;
+
+            var desc = document.getElementById('productDesc').value;
+
+            var status = document.getElementById('productStatus').value;
+
+            xhttp.send(JSON.stringify({
+
+                id: id,
+
+                name: name,
+
+                description: desc,
+
+                status: status
+
+            }));
+
+            alert(name + ' ' + desc + ' ' + status + ' updated of Product Id ' + id);
+
+            window.location.reload(true);// makes new get request
+
+        }
+
+        document.getElementById('btnUpdate').onclick = updateProduct;
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Worker</title>
+</head>
+<body>
+    <button id="Loop">LOOP</button>
+    <button id="Print">Hello</button>
+
+    <script>
+        var worker;
+        document.getElementById('Loop').onclick= function(){
+            worker = new Worker('loop.js');
+            worker.onmessage = function(evt){
+                alert(evt.data);
+            }
+        }
+        document.getElementById('Print').onclick = function(){
+            alert("Hello Khushboo");
+        }
+    </script>
+</body>
+</html>

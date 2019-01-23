@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Event Listener</title>
+</head>
+<body>
+    <div id='div1'>
+        <p id='para1'>Bubbling with stop propogation</p>
+    </div>
+    <div id='div2'>
+            <p id='para2'>Bubbling with Immediate Propogation</p>
+    </div>
+    <div id='div3'>
+            <p id='para3'>Capturing with stop propogation</p>
+    </div>
+    <div id='div4'>
+            <p id='para4'>Capturing with Immediate propogation</p>
+    </div>
+    <div id='div5'>
+            <p id='para5'>Bubbling with multiple events and stop propogation</p>
+    </div>
+
+    <script>
+        function $(id){
+            return document.getElementById(id);
+        }
+        alert("Hi");
+        //first
+        $('div1').addEventListener('click',function(){
+            alert("Clicked div1");
+        });
+        $('para1').addEventListener('click',function(evt){
+            alert("Clicked para1");
+            evt.stopPropagation();
+        });
+
+        //second
+        $('div2').addEventListener('click',function(){
+            alert("Clicked div2");
+        });
+        $('para2').addEventListener('click',function(evt){
+            alert("Clicked para2 with 1 event");
+            evt.stopImmediatePropagation();
+        });
+        $('para2').addEventListener('click',function(){
+            alert("Clicked para2 with 2 event");
+        });
+
+        //third
+        $('div3').addEventListener('click',function(evt){
+            alert("Clicked div3");
+            evt.stopPropagation();
+        },true);
+        $('para3').addEventListener('click',function(){
+            alert("Clicked para3");
+        },true);
+
+        //fourth
+        $('div4').addEventListener('click',function(evt){
+            alert("Clicked div4 with 1 event");
+            evt.stopImmediatePropagation();
+        },true);
+        $('div4').addEventListener('click',function(){
+            alert("Clicked div4 with 2 event");
+        },true);
+        $('para4').addEventListener('click',function(){
+            alert("Clicked para4");
+        },true);
+
+        //fifth
+        $('div5').addEventListener('click',function(){
+            alert("Clicked div5");
+        });
+        $('para5').addEventListener('click',function(evt){
+            alert("Clicked para5 with 1 event");
+            evt.stopPropagation();
+        });
+        $('para5').addEventListener('click',function(){
+            alert("Clicked para5 with 2 event");
+        });
+        
+
+    </script>
+
+</body>
+</html>

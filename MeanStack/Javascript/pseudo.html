@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pseudo Inheritance and Polymorphism</title>
+</head>
+<body>
+    <script>
+        //Human is Base class
+        //Student is a Drived class
+
+        function Human(name){
+            this.name= name;
+        }
+
+        Human.prototype.speak = function(){
+            alert("I can speak english!");
+        }
+
+        Human.prototype.intro = function(){
+            alert("Hi I am "+this.name);
+        }
+
+        //protottype chaining
+        Student.prototype = new Human();
+        Student.prototype.constructor = Student;
+
+        function Student(nm , college , courses) {
+            //classical inheritance
+            Human.call(this,nm);
+
+            this.college = college;
+            this.courses = courses;
+        }
+
+        //overriding
+        Student.prototype.intro = function(){
+            alert("Hi I am "+this.name+" and I am from "+this.college+" currenly studying "+this.courses);
+        }
+
+        Student.prototype.takeExam = function(){
+            alert("I have an exam.");
+        }
+
+        var human = new Human("Abhijeet");
+        human.speak();
+        human.intro();
+
+        var student = new Student('Khushboo','LNCT',['JS','HTML','CSS']);
+        student.speak();
+        student.intro();
+        student.takeExam();
+
+
+        //Polymorphism
+
+        letMeIntroduce(human);
+        letMeIntroduce(student);
+
+        function letMeIntroduce(obj){
+            obj.intro();
+        }
+
+    </script>
+</body>
+</html>

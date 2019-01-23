@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Module Pattern</title>
+</head>
+<body>
+    <script>
+        function Employee(id,name,sal){
+            this.id=id;
+            this.name=name;
+            this.sal= sal;
+        }
+
+        var module = (function(){
+                var empList = [];
+                return {
+                    add: function(e){
+                        empList.push(e);
+                },
+                    show: function(){
+                        for(var i in empList){
+                            console.log(empList[i]);
+                        }
+                    }
+
+                }
+        })();
+
+        var e1 = new Employee(1,'Khushboo',10000);
+        var e2 = new Employee(2,'Astha',10000);
+        var e3 = new Employee(3,'Shivani',20000);
+
+        module.add(e1);
+        module.add(e2);
+        module.add(e3);
+
+        module.show();
+
+    </script>
+</body>
+</html>

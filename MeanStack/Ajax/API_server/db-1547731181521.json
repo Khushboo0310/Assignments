@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "IPhone X",
+      "description": "Apple Smart Phone",
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "name": "Moto G4 Plus",
+      "description": "Lenovo Product",
+      "status": "unavailable"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+h1 {
+  background-color: peachpuff;
+  color: red;
+  border: 2px solid green;
+  margin: 50px;
+}
+p {
+  padding: 20px;
+  background-color: peachpuff;
+  border: 2px solid green;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Position</title>
+    <style>
+        .static{
+            position: static;
+            border: 2px solid red;
+            width: 200px;
+        }
+        .relative{
+            position: relative;
+            border: 2px solid red;
+            width: 200px;
+            height: 200px;
+            margin: 50px;
+        }
+        .absolute{
+            position: absolute;
+            border: 2px solid red;
+            width: 100px;
+            right: 0px;
+           bottom: 0px;
+           left:20px;
+           
+        }
+        .inherit{
+            position: inherit;
+            border: 2px solid red;
+            width: 80px;
+           left: 20px;
+          
+        }
+        .sticky{
+            position: sticky;
+            border: 2px solid red;
+            top:0px;
+        }
+        .fixed{
+            position: fixed;
+            border: 2px solid red;
+            top: 0px;
+            right: 0px;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class='static'>
+        The div is positioned : static
+    </div>
+    <div class='relative'>
+            The div is positioned : relative
+            <div class='inherit'>
+                    The div is positioned : inherit
+            </div>
+            <div class='absolute'>
+                    The div is positioned : absolute
+            </div>
+            <div class='inherit'>
+                    The div is positioned : inherit
+            </div>
+    </div>
+    <div class='sticky'>
+            The div is positioned : sticky
+    </div>
+    <div style="padding-bottom:1000px">
+        para
+    </div>
+    <div class='fixed'>
+
+            The div is positioned : fixed
+            <div class='absolute'>
+                    The div is positioned : absolute
+            </div>
+            <div class='inherit'>
+                    The div is positioned : inherit
+            </div>
+    </div>
+</body>
+</html>

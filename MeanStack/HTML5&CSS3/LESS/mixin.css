@@ -1,0 +1,17 @@
+#circle {
+  background-color: green;
+  border: 3px solid white;
+  border-radius: 100%;
+}
+#small-circle {
+  width: 50px;
+  background-color: green;
+  border: 3px solid white;
+  border-radius: 100%;
+}
+#big-circle {
+  width: 100px;
+  background-color: green;
+  border: 3px solid white;
+  border-radius: 100%;
+}

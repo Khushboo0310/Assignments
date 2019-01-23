@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Responsive</title>
+    <style>
+        div{
+            border: 2px solid black;
+            margin: 20px;
+        }
+        @media screen and (max-width: 750px){
+            #element{
+                border: none;
+            }
+        }
+        @media screen and (max-width: 850px){
+            .one{
+                background-color: pink;
+            }
+        }
+        @media screen and (min-width: 1000px){
+            .two{ background-color: orange;}
+        }
+        @media screen and (min-width: 850px) and (max-width: 1000px){
+            .three{ background-color: purple;}
+        }
+    </style>
+</head>
+<body>
+    <div id="element">The border will disappear when the screen size will become less than 750px</div>
+    <div class="one">The color will change to pink when the screen size will become less than 850px</div>
+    <div class="two">The color will change to orange when the screen size will greater than 1000px</div>
+    <div class="three">The color will change to purple when the screen size is between 850px and 1000px</div>
+</body>
+</html>

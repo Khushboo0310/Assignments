@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inheritance</title>
+</head>
+<body>
+    <script>
+        //CONSTRUCTOR CHAINING
+        // function Parent(relation) {
+        //     this.relation = relation;
+        //     this.jobs = ['service','business'];
+
+        //     this.show = function(){
+        //         alert(this.relation);
+        //     }
+        // }
+        // function Child(rel){
+
+        // }
+        // Child.prototype = new Parent('Mother');   //chaining with the proper sequence
+        // Child.prototype.constructor = Child;
+
+        // var child = new Child('son');
+        // child.show();
+
+        
+        //call and apply methods
+
+        // var p1 = {name:'Sachin',city:'Mumbai'};
+        // var p2 = {name:'Rahul',city:'Bengaluru'};
+
+        // var sayHello = function(){      //global method
+        //     alert("Hello "+this.name+" from "+this.city);
+        // }
+
+        // sayHello.call(p1);
+        // sayHello.call(p2);
+
+        // var updateInfo = function(name,city){
+        //     this.name=name;
+        //     this.city=city;
+        // }
+
+        // updateInfo.call(p1,'Mahi','Ranchi');        //passing multiple ags separately 
+        // updateInfo.apply(p2,['yuvi','Chandigarh']);     //passing multiple ags as an array
+
+        // sayHello.call(p1);
+        // sayHello.call(p2);
+
+        //CLASSICAL INHERITANCE
+
+        function Parent(relation) {
+            this.relation = relation;
+            this.jobs = ['service','business'];
+
+            this.show = function(){
+                alert(this.relation);
+            }
+        }
+
+        Parent.prototype.parentPrototypeMethod = function(){
+            alert("Parent Prototype Method");
+        }
+
+        function Child(rel){
+            //classical inheritance
+            Parent.call(this,rel);  //calling parent class ctor by passing Child class object and relation
+        }
+        
+
+        var child = new Child('son');
+        var child1 = new Child('daughter');
+        child.show();
+        child1.show();
+        //child1.parentPrototypeMethod();       //???????????
+
+        console.log(child.jobs);
+        console.log(child1.jobs);
+        child.jobs.push('Retired');
+        console.log(child.jobs);
+        console.log(child1.jobs);
+
+
+
+    </script>
+</body>
+</html>

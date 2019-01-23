@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        @keyframes MultiColor{
+            0%{background-color: red; margin-top: 50px; margin-left: 20px;  }
+            25%{background-color:blue; margin-top: 50px; margin-left: 400px; border-radius: 100px;}
+            50%{background-color: yellow; margin-top: 400px; margin-left: 400px;border-radius: 0px;}
+            75%{background-color:peru; margin-top:400px;margin-left: 20px;border-radius: 100px;}
+            100%{background-color:brown; margin-top: 50px; margin-left: 20px; border-radius: 0px;}
+        }
+        @keyframes Move {
+            
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin-left: 100px;
+            background-color: grey;
+            animation: MultiColor 8s ;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    
+</body>
+</html>

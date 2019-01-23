@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Callback and Self executing functions</title>
+</head>
+<body>
+    <script>
+        //------------Callback----------
+        //.dll
+        function invoke_and_add(f1,f2){
+            return f1() + f2();
+        }
+
+        //.exe
+
+        function one(){
+            return 2;
+        }
+        function two(){
+            return 3;
+        }
+
+        //call the dll function
+        console.log('Result is '+invoke_and_add(one,two));
+
+        //call the dll function with anonymous functions
+        console.log("result is "+invoke_and_add(
+            function(){return 10;},function(){return 20;}
+        ));
+
+        //----------Self executing-------------
+        (function(n){
+            alert("Doing the work once and then off "+ n);
+        })(5);
+
+        for(var i=0 ; i<5 ; i++){       //it will declare the function 5 times and execute it 5 times
+            (function(n){
+            alert("Doing the work once and then off "+ n);
+        })(i);
+        }
+
+    </script>
+</body>
+</html>
