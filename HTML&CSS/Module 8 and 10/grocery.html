@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    <form action="Assign-01.html">
+   
             <h1>Welcome User!</h1>
             <ul id="list">
         
@@ -16,11 +16,12 @@
         
             <br>
             <p>You Selected : <span id="number"></span></p>
+        <form action="Assign-01.html">
             <div id="cart"></div>
             <br>
             <input type="submit" value="Sign Out" id="signout">
-    </form>
-    
+   
+        </form>
     <script>
             if(!localStorage.getItem('items')){
                 localStorage.setItem('items',['Item-1','Item-2','Item-3','Item-4 ','Item-5','Item-6']);
@@ -47,6 +48,12 @@
             }
 
             //---------session delete------------
+            document.getElementById('signout').onclick = function(){
+                if(sessionStorage.getItem('sitems')!= ""){
+                        sessionStorage.setItem('sitems','');
+                    }
+                
+            }
         </script>
 </body>
 </html>
