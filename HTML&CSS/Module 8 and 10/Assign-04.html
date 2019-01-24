@@ -9,6 +9,12 @@
 <body>
     <div id="loading">Loading . . . </div>
 
-    
+    <script>
+        var worker = new Worker('table.js');
+        worker.onmessage = function(evt){
+            //console.log(evt.data);
+            document.getElementById('loading').innerHTML = evt.data;
+        }
+    </script>
 </body>
 </html>
