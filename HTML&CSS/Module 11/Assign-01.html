@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assign-01</title>
+
+    <style type="text/css">
+        #myMap {
+            height: 500px;
+            width: 800px;
+            border: 10px solid #FFFFFF;
+        }
+        fieldset{
+            
+            width: 800px;
+        }
+    </style>
+    <script type="text/javascript" 
+    src="http://maps.google.com/maps/api/js?sensor=true">
+    </script>
+    <script>
+    
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(
+                function (position)
+                {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    console.log(position);
+                    var coords = new google.maps.LatLng(lat, lon);
+
+                    var mapOptions =
+                        {
+                            zoom: 15,
+                            center: coords,
+                            mapTypeControl: true,
+                            navigationControloptions:
+                            {
+                                style: google.maps.NavigationControlStyle.SMALL
+                            },
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                        };
+
+                    map = new google.maps.Map(document.getElementById("myMap"), mapOptions);                   
+                },
+                function (error)
+                {
+                    mapCont = document.getElementById("myMap");
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            mapCont.innerHTML = "User denied the request for Geolocation."
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            mapCont.innerHTML = "Location information is unavailable."
+                            break;
+                        case error.TIMEOUT:
+                            mapCont.innerHTML = "The request to get user location timed out."
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            mapCont.innerHTML = "An unknown error occurred."
+                            break;
+                    }
+                });
+            }else
+            {
+                console.log("Geolocation Not Supported..")
+            }
+    </script>
+
+
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend><h1>Contact Us</h1></legend>
+            <label for="username">Your Name : </label><br>
+            <input type="text" name="username" id="username"><br><br>
+
+            <label for="address">Your Address : </label><br>
+            <input type="text" name="address" id="address"><br><br>
+
+            <label for="email">Email : </label><br>
+            <input type="email" name="email" id="email"><br><br>
+            
+            <label for="phone">Phone Number : </label><br>
+            <input type="number" name="phone" id="phone"><br><br>
+            
+            
+        </fieldset>
+
+    </form>
+    <div id="myMap"></div>
+</body>
+</html>

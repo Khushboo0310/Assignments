@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="f5.jpg" alt="Audio">
+        <audio id="audio" autoplay>
+            <source src="audio.mp3" type="audio/mpeg">
+        </audio>
+        <br>
+        <button id="pp">Play/Pause</button>
+        <button id="dv">Decrease Vol</button>
+        <button id="iv">Increase Vol</button>
+    </div>
+
+    <script>
+        document.getElementById('pp').onclick = function(){
+            var aud = document.getElementById('audio');
+            if(aud.paused == true){
+                aud.play();
+                alert("play")
+            }
+            else{
+                aud.pause();
+                alert("paused.")
+            }
+        }
+        document.getElementById('dv').onclick = function(){
+            var aud = document.getElementById('audio');
+            if(aud.volume>0){
+                aud.volume=((aud.volume)-(0.1)).toPrecision(2);
+                console.log(aud.volume);
+            }
+            else{
+                alert("Audio is muted.");
+            }
+        }
+        document.getElementById('iv').onclick = function(){
+            var aud = document.getElementById('audio');
+            if(aud.volume<1.0){
+                aud.volume+=0.1;
+            }
+            else{
+                alert("Volume is full.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <label for="odd">Enter the limit to calculate the odd numbers starting from the number 1 :</label>
+    <input type="number" id="number">
+    <br>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <ul id="list"></ul>
+    <!--hello khsuhsboo-->
+    <script>
+        var worker = new Worker('OddNumber.js');
+
+        document.getElementById('start').onclick = function(){
+            worker.onmessage = function(evt){
+                console.log(typeof(evt.data));
+                var li = document.createElement('li');
+                li.innerHTML = evt.data;
+                document.getElementById('list').appendChild(li);
+                
+            }
+            worker.postMessage(document.getElementById('number').value);
+        }
+        document.getElementById('stop').onclick = function(){
+            worker.terminate();
+        }
+    </script>
+</body>
+</html>

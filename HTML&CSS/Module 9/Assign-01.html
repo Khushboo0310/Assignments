@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assign-01</title>
+    <style>
+        video{
+            width: 50%;
+            height: 30%;
+        }
+    </style>
+</head>
+<body>
+    <video id="vid" controls>
+        <source src="pointing_green.mp4" type="video/mp4">
+        <source src="pointing_green.ogg" type="video/ogg">
+        Video
+    </video>
+    <br>
+    <button id="replay">Replay</button>
+    <button id="fullscreen">Fullscreen</button>
+
+    <script>
+        document.getElementById('replay').onclick = function(){
+            var vid = document.getElementById('vid');
+            vid.pause();
+            vid.currentTime = 0;
+            vid.play();
+        }
+        document.getElementById('fullscreen').onclick = function(){
+            if (vid.requestFullscreen) {
+                vid.requestFullscreen();
+            }
+            else if (vid.webkitRequestFullscreen) {
+                 vid.webkitRequestFullscreen(); // Chrome and Safari
+            }
+        }
+    </script>
+</body>
+</html>

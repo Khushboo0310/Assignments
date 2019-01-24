@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assign-02</title>
+</head>
+<body>
+    <h1 id="index" align="center"></h1>
+    <script>
+        if(!localStorage.getItem('counter')){
+            localStorage.setItem('counter',0);
+        }
+        localStorage.setItem('counter',parseInt(localStorage.getItem('counter'))+1);
+        document.getElementById('index').innerHTML = "Hi you are the "+localStorage.getItem('counter')+" visitor of this site.";
+    </script>
+</body>
+</html>
