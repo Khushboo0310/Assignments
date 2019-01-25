@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #first{
+        background-color: red;
+        height:100px;
+        width:100px;
+        position:relative;
+        left:150px;
+        z-index: -1
+    }
+    #second{
+        background-color: green;
+        height:100px;
+        width:100px;
+        position:absolute;
+        left:200px;
+        top:50px;
+        z-index:0;
+        
+    }
+    #third{
+        background-color:blue;
+        height:100px;
+        width:100px;
+        position: relative;
+        left:250px;
+      
+        z-index: 1
+    }
+    </style>
+</head>
+<body>
+    <div id="first"></div>
+    <div id="second"></div>
+
+    <div id="third"></div>
+</body>
+</html>
