@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Loading</title>
+    <style>
+        @keyframes loading {
+            from{transform: rotate(0deg) translate(50px); width: 20px; height: 20px; opacity: 1;}
+            to{ transform: rotate(360deg) translate(50px); width: 5px; height: 5px; opacity: 0.1;}
+        }
+        #one{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: purple;
+          
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            z-index: 0;
+        }
+        #two{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: rgb(179, 33, 179);
+            
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            animation-delay: 100ms;
+            z-index: -1;
+        }
+        #three{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: rgb(179, 33, 179); 
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            animation-delay: 200ms;
+            z-index: -2;
+        }
+        #four{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: rgb(179, 33, 179);
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            animation-delay: 300ms;
+            z-index: -3;
+        }
+        #five{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: rgb(179, 33, 179);
+            
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            animation-delay: 400ms;
+            z-index: -4;
+        }
+        #six{
+            
+            position: absolute;
+            border-radius: 100%;
+            background-color: rgb(179, 33, 179);
+            
+            margin-left: 700px;
+            margin-top: 300px;
+            animation: loading 2s infinite ease-in-out;
+            animation-delay: 500ms;
+            z-index: -5;
+        }
+        h3{
+            position: absolute;
+            margin-left: 670px;
+            margin-top: 380px;
+            font-family: cursive;
+        }
+    </style>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+    <div id="six"></div>
+    <h3>Loading...</h3>
+</body>
+</html>
