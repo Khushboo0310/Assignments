@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Handling POST in Express</h1>
+    
+        <fieldset>
+            <legend>Login</legend><br><br>
+            Username : <input type="text" placeholder="Username" id="username" required><br><br>
+            Password : <input type="password" placeholder="Password" id="pass" required><br><br>
+            <input type="button" value="Login" id="btn-login">
+        </fieldset>
+    
+    <script>
+        document.getElementById('btn-login').onclick = function(){
+            var username = document.getElementById('username').value;
+            var pass = document.getElementById('pass').value;
+            console.log(pass+username);
+            var url = "http://localhost:5000/login";
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST",url,true);
+            
+            xhttp.onreadystatechange = function(){
+                if(this.readyState==4 && this.status==200){
+                    alert(xhttp.response);
+                }
+            }
+
+            xhttp.send(JSON.stringify({
+                name:username,
+                pass: pass
+            }));
+        }
+    </script>
+
+</body>
+</html>

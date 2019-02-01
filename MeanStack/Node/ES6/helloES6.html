@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var a = 2000;
+        let b= 1000;
+    if(true){
+        let x=10;
+        if(true){
+            console.log(x);         //it will work
+        }
+    }
+    //console.log(x);     //not accessible
+    const PI = 3.14;    //block  , declaration and initialization is required together
+    //                        PI = 3.145
+
+
+
+
+    //Arrow function
+
+    var cars=['BMW','AUDI','FERRARI'];
+    cars.forEach(function(car){
+        console.log(car);
+    });
+
+    //above code can be written as
+    cars.forEach(car=>console.log(car))
+
+
+    //classes
+
+    class Car{
+        constructor(name="audi",speed=2000){
+            this.name = name;
+            this.speed = speed;
+        }
+        accelerate(){
+            console.log(this.name+" is running at the speed of "+this.speed+" kmph");
+            console.log(`${this.name} is running at the speed of ${this.speed} kmph`);  //string template literal syntax
+        }
+    }
+
+    //IHERITANCE
+
+    class JamesBondCar extends Car{
+        constructor(name,speed,sub,invisible){
+            super(name,speed);
+            this.canSubmerge = sub;
+            this.canInvisible = invisible;
+        }
+        accelerate(){
+            return super.accelerate() +", cam it be invisible?"+this.canInvisible;
+        }
+    }
+    var obj = new JamesBondCar("Aston Martin",5000,true,true);
+    obj.accelerate();
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

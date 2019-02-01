@@ -10,6 +10,11 @@
             from{transform: rotate(0deg) translate(50px); width: 20px; height: 20px; opacity: 1;}
             to{ transform: rotate(360deg) translate(50px); width: 5px; height: 5px; opacity: 0.1;}
         }
+        @keyframes opac {
+            from{opacity: 0.1;}
+            to{opacity: 1;}  
+        }
+        
         #one{
             
             position: absolute;
@@ -84,6 +89,7 @@
             margin-left: 670px;
             margin-top: 380px;
             font-family: cursive;
+            animation: opac 2s infinite;
         }
     </style>
 </head>
@@ -94,6 +100,6 @@
     <div id="four"></div>
     <div id="five"></div>
     <div id="six"></div>
-    <h3>Loading...</h3>
+    <h3>Loading...</h3>  
 </body>
 </html>
