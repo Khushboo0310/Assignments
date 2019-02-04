@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
 app.use(bodyParser.json());
 
 app.post('/login',function(req,res){
-    console.log(req.body.name);
+    console.log(req.body.name); 
     console.log(req.body.pass);
     res.send("Success!");
 })

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1 List of employees
+    ul
+        each employee in allemployees
+            li Name : #{employee.name} Location : #{employee.location} 
