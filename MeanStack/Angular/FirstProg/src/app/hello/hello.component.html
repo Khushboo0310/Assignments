@@ -1,0 +1,21 @@
+<body>
+    <h1>Helloooooooooooooo Nagpur</h1>
+    <div [hidden]="display">
+        <h3>{{msg}}</h3>  
+        <h4>{{loc}}</h4>
+        <h4>{{schedule}}</h4>
+    </div>
+    <button [disabled]="isButtonDisabled" (click)="handleClick($event)">Click me!</button>
+    <button [style.color]="isSpecial ? 'red' : 'green'">Red</button>
+    <button [style.background-color]="canSave? 'cyan': 'grey'">Save</button>
+    <br>
+    <br>
+    <div [class]="stylename">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam fuga atque porro eum modi sunt quidem minus accusantium culpa quam, fugiat eius placeat laboriosam velit, fugit nostrum id, ut veniam?
+    </div>
+    <br><br>
+    <!-- <div>
+        <input type="text" #msg (keyup.Enter)="showText(msg.value)">
+        <p >{{txt}}</p>
+    </div> -->
+</body>

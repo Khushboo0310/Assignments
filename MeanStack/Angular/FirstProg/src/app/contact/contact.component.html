@@ -1,0 +1,29 @@
+
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Cell</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of contacts">
+        <td>{{c.name}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.cell}}</td>
+        <td><button (click)="delete(c)">Delete</button></td>
+      </tr>
+      <tr>
+        <td><input type="text" #nameAdd></td>
+        <td><input type="text" #emailAdd></td>
+        <td><input type="text" #cellAdd></td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="addRecords(nameAdd.value,emailAdd.value,cellAdd.value)">Add records</button>
+  
+</div>

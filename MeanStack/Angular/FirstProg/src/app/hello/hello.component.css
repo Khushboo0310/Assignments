@@ -1,0 +1,18 @@
+body{
+    color: lightcoral;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14x; 
+}
+button{
+    border-radius: 10px;
+    width: 100px;
+    background-color: peachpuff;
+    text-shadow: 1px 1px;
+    color: maroon;
+}
+
+.s1{
+    border: 2px dotted red;
+    color: brown;
+    align-content: center;
+}
